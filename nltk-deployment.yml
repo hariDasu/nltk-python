@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nltk-funcs
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: nltk-funcs
+    spec:
+      containers:
+      - image: gcr.io/monimus-botkit/nltk-funcs:v1
+        name: nltk-funcs
+        ports:
+        - name: http-server
+          containerPort: 9000
